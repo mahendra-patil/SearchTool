@@ -1,0 +1,40 @@
+<div class="col-sm-12"%>
+  <div class="col-sm-2"%>
+    <%= link_to "Back",root_path, class: "btn btn-danger" %>
+  </div>
+  <div class="col-sm-9">
+    <% if @flag.to_i == 1 %>
+      <h3 style="text-align: center; color: blue;">My Friends</h3>
+    <% elsif @flag.to_i == 2 %>
+      <h3 style="text-align: center; color: blue;">Friends</h3>
+    <% end %>
+  </div>
+</div>
+  <br><br>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Website Title</th>
+        <th>Website Address</th>
+        <th>Website Description</th>
+        <th>Friends</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |u| %>
+        <tr>
+          <td><%= u.name %></td>
+          <td><%= u.email %></td>
+          <td><%= u.website_title %></td>
+          <td><%= link_to u.website_address, " " %></td>
+          <td><%= u.web_description %></td>
+          <td><%= get_my_friends(u) %></td>
+          <td><%= link_to "Show Friends",user_path(id: u, flag: 2) %></td>
+        </tr>
+        <br>
+    <% end %>
+    </tbody>
+  </table>
