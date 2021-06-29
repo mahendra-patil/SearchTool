@@ -1,24 +1,7 @@
-# README
+# Steps
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. create user's frind 
+    current_user.friends << friend (user)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2. unfriend user (only destroy relationship)
+    current_user.relationships.find_by(friend_id).destroy
